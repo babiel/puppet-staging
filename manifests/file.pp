@@ -116,6 +116,15 @@ define staging::file (
         }
       }
     }
+    /^file:\/\//: {
+      file { $target_file:
+        source  => $source,
+        owner   => $owner,
+        group   => $group,
+        mode    => $mode,
+        replace => false,
+      }
+    }
     /^puppet:\/\//: {
       file { $target_file:
         source  => $source,
